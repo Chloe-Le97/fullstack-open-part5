@@ -1,0 +1,10 @@
+.app_user{
+  width: 15%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logout_button{
+  display: block;
+  height: 30px;
+}
