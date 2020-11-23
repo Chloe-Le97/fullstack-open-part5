@@ -76,6 +76,7 @@ const App = () => {
       <div>
         username
           <input
+          id='username'
           type="text"
           value={username}
           name="Username"
@@ -85,13 +86,14 @@ const App = () => {
       <div>
         password
           <input
+          id='password'
           type="password"
           value={password}
           name="Password"
           onChange={({ target }) => setPassword(target.value)}
         />
       </div>
-      <button type="submit">login</button>
+      <button id="login-button" type="submit">login</button>
     </form>      
   )
 
@@ -101,6 +103,11 @@ const App = () => {
     window.localStorage.setItem(
       'loggedBlogappUser', ''
     ) 
+  }
+  const onLike = async (blog) =>{
+    const likes = blog.likes
+    await blogService.update(blog.id,{...blog, likes: likes+1})
+    getAllBlog()
   }
 
   const createBlog = async (blogObject) => {
@@ -148,7 +155,7 @@ const App = () => {
       </div>)
     }
     {blogs.map(blog =>
-        <Blog key={blog.id} blog={blog} getAllBlog={getAllBlog} createdBy={user}/>
+        <Blog key={blog.id} blog={blog} getAllBlog={getAllBlog} user={user} onLike={onLike} className='blog'/>
     )}
 
     </div>

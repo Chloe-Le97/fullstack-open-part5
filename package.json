@@ -3,8 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.4.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.19.2",
     "prop-types": "^15.7.2",
@@ -16,7 +14,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "cypress:open": "npx cypress open"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,5 +33,10 @@
     ]
   },
   "proxy": "http://localhost:3001",
-  "secure": false
+  "secure": false,
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "eslint-plugin-cypress": "^2.11.2"
+  }
 }
